@@ -1,0 +1,26 @@
+version: '3'
+services:
+
+    nginx:
+        container_name: blogCli-nginx-container
+        build: ./nginx
+        restart: always
+        ports:
+        - "8089:80"
+        volumes:
+        - /Users/3gtc/Desktop/前端和python/BlogApi-docker/RestApi:/html
+        - ./log:/var/log/nginx
+        depends_on:
+        - blog
+    blog:
+        container_name: blog-Node-container
+        build: ./my-site
+        # restart: always
+        # ports:
+        # - "8088:8088"
+        volumes:
+        - /Users/3gtc/Desktop/前端和python/BlogApi-docker/RestApi:/html
+        - ./log:/var/log/nginx
+
+# volumes:
+#     blog_data:

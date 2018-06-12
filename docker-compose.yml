@@ -8,8 +8,8 @@ services:
         ports:
         - "8089:80"
         volumes:
-        - /Users/3gtc/Desktop/前端和python/BlogApi-docker/RestApi:/html
-        - ./log:/var/log/nginx
+        - ./my-site:/html
+        # - ./log:/var/log/nginx
         depends_on:
         - blog
     blog:
@@ -19,8 +19,8 @@ services:
         # ports:
         # - "8088:8088"
         volumes:
-        - /Users/3gtc/Desktop/前端和python/BlogApi-docker/RestApi:/html
-        - ./log:/var/log/nginx
+        - ./my-site:/html
+        # - ./log:/var/log/nginx
 
 # volumes:
 #     blog_data:

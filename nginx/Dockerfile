@@ -1,7 +1,7 @@
 FROM nginx:latest
 
 RUN mkdir  /html
-# COPY ./dist /html
+
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY my_nginx.conf /etc/nginx/sites-available/
 

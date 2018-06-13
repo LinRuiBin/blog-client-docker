@@ -39,6 +39,11 @@ export default {
   },
   computed: {
     compiledMarkdown () {
+      // DEBUG:
+      var origindata = this.detailpost.art_desc
+      console.log('解析markdown 原始数据 : ' + origindata)
+      var markdata = marked(this.detailpost.art_desc, { sanitize: true })
+      console.log('解析markdown : ' + markdata)
       return marked(this.detailpost.art_desc, { sanitize: true })
     }
   },

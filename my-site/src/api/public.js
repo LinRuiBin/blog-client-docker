@@ -1,7 +1,7 @@
 import axios from 'axios'
 axios.defaults.timeout = 10000
 axios.defaults.headers.post['Content-Type'] = 'application/x-www=form-urlencoded'
-let host = 'http://127.0.0.1:8888'
+let host = 'http://120.79.37.206:8888'
 export default {
   fetchGet (url, params = {}) {
     return new Promise((resolve, reject) => {

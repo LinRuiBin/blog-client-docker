@@ -124,6 +124,9 @@ export default {
   font-weight: bold;
   left: 30px;
   top: 10px;
+  &:hover {
+    color: #3489EE;
+  }
 }
 .login {
   // background-color: gray;

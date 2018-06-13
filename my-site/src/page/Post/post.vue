@@ -1,6 +1,6 @@
 <template>
   <el-row>
-    <el-col xs={span:20,offset:2} :sm={span:12,offset:6}  :md={span:12,offset:6}  :lg={span:12,offset:6}  :xl={span:12,offset:6} >
+    <el-col xs={span:20,offset:2} :sm={span:18,offset:3}  :md={span:18,offset:3}  :lg={span:18,offset:3}  :xl={span:18,offset:3} >
       <div class="post">
         <div class="top">
           <h1 class="title">{{detailpost.title}}</h1>

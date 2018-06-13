@@ -41,7 +41,7 @@
 export default {
   data () {
     return {
-      backtitle: '<< 回到首页',
+      backtitle: '<< 回去登录',
       show: true,
       count: '',
       timer: null,
@@ -82,7 +82,7 @@ export default {
     },
 
     backtohome () {
-      this.$router.push({path: '/'})
+      this.$router.push({path: '/login/'})
     },
 
     getCode () {
@@ -118,6 +118,9 @@ export default {
   font-weight: bold;
   left: 30px;
   top: 10px;
+  &:hover {
+    color: #3489EE;
+  }
 }
 .login {
   // background-color: gray;

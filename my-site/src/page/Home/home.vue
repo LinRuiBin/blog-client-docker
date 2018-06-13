@@ -43,7 +43,7 @@
 
 <script>
 import moment from 'moment'
-import clLine from '../../components/line.vue'
+import clLine from '/components/line.vue'
 import pinyin from 'pinyin'
 import { getHomeArticles } from '../../api/blog.js'
 import { mapActions } from 'vuex'

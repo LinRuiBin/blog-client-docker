@@ -5,12 +5,12 @@
         <div class="middle">
           <img class="avatar" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=336895329,3318752633&fm=27&gp=0.jpg" alt="avatar">
           <p class="name">I am lrb</p>
-          <p class="description">我会敲代码的也没我帅。
+          <p class="description">枯藤老树昏鸦，小桥流水人家。
          </p>
           <ul class="navigations">
-            <!-- <router-link to="/home">
+            <router-link to="/home">
                 <i class="iconfont icon-homepage" title="首页"></i>
-            </router-link> -->
+            </router-link>
             <router-link to="/posts">
                 <i class="iconfont icon-document" title="全部文章"></i>
             </router-link>
@@ -134,6 +134,9 @@ header {
     align-items: center;
     color: #666;
     font-weight: bold;
+    &:hover{
+      color: #3489EE;
+    }
     .logout{
       margin-left: 10px;
       color: #3489EE;

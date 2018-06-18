@@ -33,7 +33,7 @@ export default {
       console.log('获取文章信息 id: ' + this.postid)
       getArticle(this.postid).then(res => {
         console.log('获取文章结果: ' + res)
-        this.detailpost = res
+        this.detailpost = res.data
       })
     }
   },

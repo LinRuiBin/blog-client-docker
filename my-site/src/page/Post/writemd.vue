@@ -97,7 +97,7 @@ export default {
     },
     _getAllLabels () {
       getAllLabels().then(res => {
-        this.sourceLabels = res.results
+        this.sourceLabels = res.data.results
         // DEBUG:
         console.log('获取所有结果: ' + res)
       })
@@ -113,12 +113,24 @@ export default {
       console.log('发表文章参数: ' + parmas)
       this.btntitle = '正在发送...'
       this.isloading = true
+      var that = this
       createArticle(parmas).then(res => {
         // DEBUG:
+        that.btntitle = '发表文章'
+        that.isloading = false
         console.log('发表文章: ' + res)
+        res = res.data
         if (res.id > 0) {
-          this.$router.push({path: '/postDetail/', query: {postid: res.id}})
+          this.$message({
+            message: '发表成功',
+            type: 'success'
+          })
+          that.$router.push({path: '/postDetail/', query: {postid: res.id}})
         }
+      }).catch(error => {
+        alert(error.detail)
+        that.btntitle = '发表文章'
+        that.isloading = false
       })
     },
     $imgAdd (pos, $file) {
@@ -134,10 +146,12 @@ export default {
           let config = {
             headers: {'Content-Type': 'multipart/form-data'}
           }
-          axios.post('http://127.0.0.1:8000/blogimage/', formdata, config).then(response => {
+          axios.post('http://127.0.0.1:8888/blogimage/', formdata, config).then(response => {
             console.log('图片上传成功')
             var url = response.data.image
             that.$refs.md.$img2Url(pos, url)
+          }).catch(function (error) {
+            console.log('图片上传失败' + error)
           })
         }).catch(function (error) {
           console.log('压缩失败' + error)

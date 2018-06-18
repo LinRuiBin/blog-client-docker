@@ -128,7 +128,7 @@ header {
 
 .loginName {
     position: absolute;
-    left: 30px;
+    left: 10px;
     top: 10px;
     display: inline-flex;
     align-items: center;

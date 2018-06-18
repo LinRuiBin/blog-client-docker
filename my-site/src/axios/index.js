@@ -4,7 +4,7 @@ import axios from 'axios'
 // 全局状态控制引入
 import store from '../store'
 // import * as types from '../store/mutation-types'
-import router from '../router'
+// import router from '../router'
 // http request 拦截器
 axios.interceptors.request.use(
   config => {
@@ -23,21 +23,24 @@ axios.interceptors.response.use(
   undefined,
   error => {
     let res = error.response
+    // DEBUG:
+    console.log('网络拦截器' + res)
     switch (res.status) {
       case 401:
         // 返回 401 清除token信息并跳转到登录页面
         // store.commit(types.LOGOUT);
-        router.replace({
-          path: '/login',
-          query: {redirect: router.currentRoute.fullPath}
-        })
+        // alert('您尚未登录哦')
+        // router.replace({
+        //   path: '/login',
+        //   query: {redirect: router.currentRoute.fullPath}
+        // })
         break
       case 403:
-        console.log('您没有该操作权限')
+        // alert('您没有该操作权限')
         // alert('您没有该操作权限');
         break
       case 500:
-        console.log('服务器错误')
+        // console.log('服务器错误')
         // alert('服务器错误');
         break
     }

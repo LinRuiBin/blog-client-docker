@@ -49,7 +49,7 @@ export default {
           'id': 0,
           'name': '全部'
         }
-        var results = res.results
+        var results = res.data.results
         results.splice(0, 0, allLabel)
         this.labels = results
       })
@@ -57,8 +57,8 @@ export default {
     _getAllArticles () {
       getAllArticles().then(res => {
         console.log('获取文章')
-        this.totalCount = res.count
-        this.articles = res.results
+        this.totalCount = res.data.count
+        this.articles = res.data.results
       })
     },
     clickLabel (labelid) {
@@ -67,14 +67,14 @@ export default {
       if (labelid === 0) {
         console.log('获取全部文章')
         getAllArticles().then(res => {
-          this.totalCount = res.count
-          this.articles = res.results
+          this.totalCount = res.data.count
+          this.articles = res.data.results
         })
       } else {
         console.log('获取指定id文章: ' + labelid)
         getArticlesForLabel(labelid).then(res => {
-          this.totalCount = res.count
-          this.articles = res.articles
+          this.totalCount = res.data.count
+          this.articles = res.data.articles
         })
       }
     },
@@ -82,13 +82,13 @@ export default {
       console.log('点击了第几页: ' + val)
       if (this.currentlabelId === 0) {
         getArticleByPage(val).then(res => {
-          this.totalCount = res.count
-          this.articles = res.results
+          this.totalCount = res.data.count
+          this.articles = res.data.results
         })
       } else {
         getArticlesForLabelByPage(this.currentlabelId, val).then(res => {
-          this.totalCount = res.count
-          this.articles = res.articles
+          this.totalCount = res.data.count
+          this.articles = res.data.articles
         })
       }
     }

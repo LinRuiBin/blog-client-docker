@@ -11,7 +11,7 @@
                <el-input v-model="ruleForm.username"></el-input>
              </el-form-item>
              <el-form-item label="密码" prop="password">
-                <el-input v-model="ruleForm.password"></el-input>
+                <el-input type="password" v-model="ruleForm.password"></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button class="loginBtn"  type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -78,10 +78,16 @@ export default {
       }
       console.log('登录' + parmas)
       login(parmas).then((response) => {
+        if (response.status === 200) {
+          this.$message({
+            message: '登录成功',
+            type: 'success'
+          })
+        }
         console.log(response)
         // 本地存储用户信息
         setStore('name', this.ruleForm.username)
-        setStore('token', response.token)
+        setStore('token', response.data.token)
         // 存储在store
         // 更新store数据
         this.$store.dispatch('setInfo')
@@ -91,12 +97,15 @@ export default {
       })
         .catch(function (error) {
           if ('non_field_errors' in error) {
+            alert('登录名或者密码错误')
             that.error = error.non_field_errors[0]
           }
           if ('username' in error) {
+            alert('登录名错误')
             that.userNameError = error.username[0]
           }
           if ('password' in error) {
+            alert(alert('密码错误'))
             that.parseWordError = error.password[0]
           }
         })
@@ -122,7 +131,7 @@ export default {
   float: left;
   color: #666;
   font-weight: bold;
-  left: 30px;
+  left: 10px;
   top: 10px;
   &:hover {
     color: #3489EE;

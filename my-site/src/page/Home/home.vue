@@ -64,7 +64,7 @@ export default {
       // DEBUG:
       console.log('获取所有文章')
       getHomeArticles().then(res => {
-        var allData = res[0]
+        var allData = res.data[0]
         var codes = allData['codes']
         var shares = allData['shares']
         this.codings = codes
